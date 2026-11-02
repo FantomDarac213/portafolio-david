@@ -12,6 +12,6 @@ Ejecuta `npm start` y abre http://localhost:8080. No requiere instalar dependenc
 - `node scripts/build.cjs`: prepara los archivos públicos en `dist/`.
 - Vercel utiliza `vercel.json` para construir y publicar el sitio.
 
-El formulario prepara un borrador en WhatsApp o en el cliente de correo del visitante; no utiliza un backend de envío.
+El contacto utiliza enlaces directos a WhatsApp, Gmail y LinkedIn. WhatsApp incluye un saludo predeterminado; Gmail abre un borrador con el destinatario y el contenido vacío. No hay formulario ni backend de envío.
 
 Los créditos y las licencias de los recursos se conservan en `LEEME.txt` y `assets/`.

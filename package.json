@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node servir.cjs",
     "assets": "node scripts/prepare-assets.cjs",
-    "check": "node --check portfolio.js && node --check interactions.js && node --check contact-utils.js && node --check servir.cjs"
+    "check": "node --check portfolio.js && node --check interactions.js && node --check servir.cjs"
   },
   "dependencies": {
     "gsap": "3.15.0"

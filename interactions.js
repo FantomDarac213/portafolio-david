@@ -1,88 +1,5 @@
 'use strict';
 
-// El formulario prepara un borrador. El visitante confirma el envío en su app.
-const contactForm = document.querySelector('#contact-form');
-const formStatus = document.querySelector('#form-status');
-const contactFallback = document.querySelector('#contact-fallback');
-const contactPreview = document.querySelector('#contact-preview');
-const contactAlternative = document.querySelector('#contact-alternative');
-// Los enlaces de contacto directo también funcionan sin un cliente de correo instalado.
-document.querySelectorAll('a[href="mailto:davandre456@gmail.com"]').forEach(link => {
-  link.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=davandre456%40gmail.com';
-  link.target = '_blank';
-  link.rel = 'noopener noreferrer';
-  link.setAttribute('aria-label', 'Escribir a davandre456@gmail.com en Gmail (nueva pestaña)');
-});
-function resetContactPreview() {
-  contactPreview.hidden = true;
-  contactFallback.removeAttribute('href');
-  contactAlternative.removeAttribute('href');
-  document.querySelector('#contact-preview-body').textContent = '';
-}
-const contactFields = ['name', 'email', 'message'].map(name => contactForm.elements.namedItem(name));
-contactForm.noValidate = true;
-
-function validateContactField(field) {
-  const value = field.value.trim();
-  let error = '';
-  if (field.name === 'name' && value.length < 2) error = 'Escribe tu nombre (al menos 2 caracteres).';
-  if (field.name === 'email' && (!value || field.validity.typeMismatch)) error = 'Escribe un correo válido, como nombre@correo.com.';
-  if (field.name === 'message' && value.length < 10) error = 'Cuéntame un poco más (al menos 10 caracteres).';
-  field.setAttribute('aria-invalid', String(Boolean(error)));
-  document.querySelector('#' + field.name + '-error').textContent = error;
-  return !error;
-}
-contactFields.forEach(field => {
-  field.addEventListener('blur', () => { if (field.value || field.hasAttribute('aria-invalid')) validateContactField(field); });
-  field.addEventListener('input', () => {
-    if (field.hasAttribute('aria-invalid')) validateContactField(field);
-    formStatus.textContent = '';
-    resetContactPreview();
-  });
-});
-contactForm.elements.subject.addEventListener('change', () => {
-  formStatus.textContent = '';
-  resetContactPreview();
-});
-contactForm.addEventListener('submit', event => {
-  event.preventDefault();
-  const valid = contactFields.map(validateContactField).every(Boolean);
-  if (!valid) {
-    formStatus.textContent = 'Revisa los campos señalados para continuar.';
-    contactFields.find(field => field.getAttribute('aria-invalid') === 'true').focus();
-    return;
-  }
-  const fields = Object.fromEntries(new FormData(contactForm));
-  const links = portfolioContact.buildContactLinks(fields);
-  const channel = event.submitter?.value === 'email' ? 'email' : 'whatsapp';
-  const isEmail = channel === 'email';
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  contactFallback.href = isEmail ? links.gmail : (isMobile ? links.whatsapp : links.whatsappWeb);
-  contactFallback.textContent = isEmail ? 'Abrir borrador en Gmail' : (isMobile ? 'Abrir WhatsApp' : 'Abrir WhatsApp Web');
-  contactFallback.target = '_blank';
-  contactAlternative.href = isEmail ? links.email : links.whatsapp;
-  contactAlternative.textContent = isEmail ? 'Usar mi aplicación de correo' : 'Usar la aplicación de WhatsApp';
-  if (isEmail) contactAlternative.removeAttribute('target');
-  else contactAlternative.target = '_blank';
-  document.querySelector('#contact-preview-title').textContent = isEmail ? 'Tu correo, listo para revisar' : 'Empecemos la conversación';
-  document.querySelector('#contact-preview-note').textContent = isEmail
-    ? 'Gmail se abrirá con el destinatario, el asunto y tu mensaje. Si usas otro servicio, elige tu aplicación de correo o copia el texto.'
-    : 'Continúa con el mensaje preparado. Podrás revisarlo y enviarlo desde tu cuenta de WhatsApp.';
-  document.querySelector('#contact-preview-body').textContent = links.body;
-  contactPreview.hidden = false;
-  formStatus.textContent = 'Borrador preparado. Elige cómo continuar; todavía no se ha enviado.';
-  contactPreview.focus({ preventScroll: true });
-  contactPreview.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'nearest' });
-});
-document.querySelector('#contact-copy').addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(document.querySelector('#contact-preview-body').textContent);
-    formStatus.textContent = 'Mensaje copiado. Pégalo en WhatsApp o en tu correo.';
-  } catch {
-    formStatus.textContent = 'No se pudo copiar automáticamente. Puedes seleccionar y copiar el texto de la vista previa.';
-  }
-});
-
 // GSAP mejora la presentación; el contenido sigue visible si la librería no carga.
 if (window.gsap && window.ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
@@ -180,9 +97,9 @@ if (window.gsap && window.ScrollTrigger) {
       y: 12, duration: 1.2, stagger: .13, ease: 'elastic.out(1,.7)', clearProps: 'transform',
       scrollTrigger: { trigger: '.process-flow', start: 'top 80%', once: true }
     });
-    gsap.from('.contact-intro, .contact-form', {
+    gsap.from('.contact-simple', {
       y: 24, autoAlpha: 0, duration: .8, stagger: .14, ease: 'power3.out', clearProps: 'transform,opacity,visibility',
-      scrollTrigger: { trigger: '.contact-shell', start: 'top 90%', once: true }
+      scrollTrigger: { trigger: '.contact-simple', start: 'top 90%', once: true }
     });
     gsap.utils.toArray('.service-visual').forEach(visual => {
       gsap.from(visual.querySelector('.visual-note'), {

@@ -1,4 +1,19 @@
 /* Una presentación más cercana: proceso, conocimientos y contacto. */
+.contact-simple { position: relative; isolation: isolate; overflow: hidden; padding: clamp(48px, 7vw, 88px) 24px; border: 1px solid var(--border); border-radius: 28px; background: var(--surface); text-align: center; }
+.contact-glow { position: absolute; z-index: -1; top: -180px; left: calc(50% - 220px); width: 440px; height: 340px; border-radius: 50%; background: radial-gradient(ellipse, var(--blue-soft), transparent 70%); pointer-events: none; }
+.contact-simple h2 { margin: 22px 0 0; font: 500 clamp(32px, 4.7vw, 58px)/1.16 var(--heading); letter-spacing: -1.5px; }
+.contact-simple h2 em { color: var(--blue); }
+.contact-summary { max-width: 480px; margin: 24px auto 0; color: var(--muted); font-size: 16px; line-height: 1.9; }
+.contact-simple-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+.contact-simple-actions .button { justify-content: center; gap: 12px; min-height: 54px; }
+.contact-address { display: inline-block; margin-top: 22px; padding: 6px; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+.contact-address:hover { color: var(--blue); }
+.contact-social { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 36px; }
+.contact-social > span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1.7px; }
+.contact-social > a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 9px 17px; border: 1px solid var(--border); border-radius: 999px; font-size: 14px; color: var(--text); transition: background .2s, color .2s; }
+.contact-social > a:hover { background: var(--blue-soft); color: var(--blue); }
+.contact-social svg { width: 18px; height: 18px; }
+@media (max-width: 560px) { .contact-simple-actions { flex-direction: column; max-width: 320px; margin-inline: auto; } .contact-summary br { display: none; } .contact-simple h2 { letter-spacing: -.8px; } }
 .site-header .brand-logo { width: 58px; }
 .site-header > .brand > .brand-logo { display: block; }
 .nav-pill a { font-size: 14px; min-height: 44px; padding-inline: 15px; }
