@@ -102,7 +102,16 @@ function updateScroll() {
   document.querySelector('.reading-progress').style.transform=`scaleX(${maximum>0?scrollY/maximum:0})`;
   scrollQueued=false;
 }
-window.addEventListener('scroll',()=>{if(!scrollQueued){scrollQueued=true;requestAnimationFrame(updateScroll);}},{passive:true});
+let sectionUrlTimer;
+window.addEventListener('scroll',()=>{
+  if(!scrollQueued){scrollQueued=true;requestAnimationFrame(updateScroll);}
+  clearTimeout(sectionUrlTimer);
+  // Actualizar al terminar el desplazamiento, sin añadir entradas al historial.
+  sectionUrlTimer=setTimeout(()=>{
+    const hash=activeLink===links[0]?'':activeLink.hash;
+    if(location.hash!==hash)history.replaceState(history.state,'',location.pathname+location.search+hash);
+  },160);
+},{passive:true});
 window.addEventListener('resize',()=>{setActiveLink(activeLink);updateScroll();});
 document.fonts.ready.then(()=>{setActiveLink(activeLink);updateScroll();});
 setActiveLink(activeLink);
