@@ -127,8 +127,20 @@
           <div class="form-field"><label for="contact-subject">¿De qué hablamos?</label><div class="select-wrap"><select id="contact-subject" name="subject" required><option value="Un nuevo proyecto">Un nuevo proyecto</option><option value="Mejorar un proyecto">Mejorar un proyecto</option><option value="Una oportunidad laboral">Una oportunidad laboral</option><option value="Una colaboración">Una colaboración</option><option value="Otra consulta">Otra consulta</option></select><svg aria-hidden="true"><use href="#arrow-down"/></svg></div></div>
           <div class="form-field"><label for="contact-message">Tu idea</label><textarea id="contact-message" name="message" rows="4" placeholder="Qué te gustaría hacer, para quién y cómo te puedo ayudar…" required minlength="10" maxlength="2000" aria-describedby="message-error"></textarea><span id="message-error" class="field-error"></span></div>
           <div class="form-actions"><button class="button primary" type="submit" name="channel" value="whatsapp"><svg aria-hidden="true"><use href="#chat"/></svg>Continuar por WhatsApp <svg aria-hidden="true"><use href="#arrow-up"/></svg></button><button class="form-email" type="submit" name="channel" value="email">Prefiero usar correo <svg aria-hidden="true"><use href="#mail"/></svg></button></div>
-          <p class="form-note">Revisarás el mensaje en WhatsApp o en tu correo antes de enviarlo.</p>
-          <p id="form-status" class="form-status" role="status" aria-live="polite"></p><a id="contact-fallback" class="inline-link" hidden target="_blank" rel="noopener noreferrer">Abrir mi mensaje <svg aria-hidden="true"><use href="#arrow-up"/></svg></a>
+          <p class="form-note">Prepara tu mensaje y elige dónde enviarlo. Tú confirmas el envío.</p>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          <section id="contact-preview" class="contact-preview" hidden tabindex="-1" aria-labelledby="contact-preview-title">
+            <p class="draft-label">VISTA PREVIA · SIN ENVIAR</p>
+            <h4 id="contact-preview-title">Tu mensaje está listo</h4>
+            <p class="draft-recipient">Para David · +51 918 816 413 · davandre456@gmail.com</p>
+            <p id="contact-preview-body" class="draft-body"></p>
+            <p id="contact-preview-note" class="draft-note"></p>
+            <div class="draft-actions">
+              <a id="contact-fallback" class="button primary" target="_blank" rel="noopener noreferrer">Continuar</a>
+              <a id="contact-alternative" class="draft-alternative" rel="noopener noreferrer">Otra aplicación</a>
+              <button id="contact-copy" class="draft-copy" type="button">Copiar mensaje</button>
+            </div>
+          </section>
           <noscript><p>Puedes escribirme con los enlaces de WhatsApp o correo de esta sección.</p></noscript>
         </form>
       </div>

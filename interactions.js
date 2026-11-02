@@ -4,6 +4,21 @@
 const contactForm = document.querySelector('#contact-form');
 const formStatus = document.querySelector('#form-status');
 const contactFallback = document.querySelector('#contact-fallback');
+const contactPreview = document.querySelector('#contact-preview');
+const contactAlternative = document.querySelector('#contact-alternative');
+// Los enlaces de contacto directo también funcionan sin un cliente de correo instalado.
+document.querySelectorAll('a[href="mailto:davandre456@gmail.com"]').forEach(link => {
+  link.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=davandre456%40gmail.com';
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.setAttribute('aria-label', 'Escribir a davandre456@gmail.com en Gmail (nueva pestaña)');
+});
+function resetContactPreview() {
+  contactPreview.hidden = true;
+  contactFallback.removeAttribute('href');
+  contactAlternative.removeAttribute('href');
+  document.querySelector('#contact-preview-body').textContent = '';
+}
 const contactFields = ['name', 'email', 'message'].map(name => contactForm.elements.namedItem(name));
 contactForm.noValidate = true;
 
@@ -22,14 +37,12 @@ contactFields.forEach(field => {
   field.addEventListener('input', () => {
     if (field.hasAttribute('aria-invalid')) validateContactField(field);
     formStatus.textContent = '';
-    contactFallback.hidden = true;
-    contactFallback.removeAttribute('href');
+    resetContactPreview();
   });
 });
 contactForm.elements.subject.addEventListener('change', () => {
   formStatus.textContent = '';
-  contactFallback.hidden = true;
-  contactFallback.removeAttribute('href');
+  resetContactPreview();
 });
 contactForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -42,12 +55,32 @@ contactForm.addEventListener('submit', event => {
   const fields = Object.fromEntries(new FormData(contactForm));
   const links = portfolioContact.buildContactLinks(fields);
   const channel = event.submitter?.value === 'email' ? 'email' : 'whatsapp';
-  contactFallback.href = links[channel];
-  contactFallback.hidden = false;
-  formStatus.textContent = channel === 'email'
-    ? 'Tu borrador está listo. Revísalo en tu aplicación de correo y envíalo cuando quieras.'
-    : 'Tu mensaje está listo. Revísalo en WhatsApp y envíalo cuando quieras.';
-  contactFallback.click();
+  const isEmail = channel === 'email';
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  contactFallback.href = isEmail ? links.gmail : (isMobile ? links.whatsapp : links.whatsappWeb);
+  contactFallback.textContent = isEmail ? 'Abrir borrador en Gmail' : (isMobile ? 'Abrir WhatsApp' : 'Abrir WhatsApp Web');
+  contactFallback.target = '_blank';
+  contactAlternative.href = isEmail ? links.email : links.whatsapp;
+  contactAlternative.textContent = isEmail ? 'Usar mi aplicación de correo' : 'Usar la aplicación de WhatsApp';
+  if (isEmail) contactAlternative.removeAttribute('target');
+  else contactAlternative.target = '_blank';
+  document.querySelector('#contact-preview-title').textContent = isEmail ? 'Tu correo, listo para revisar' : 'Empecemos la conversación';
+  document.querySelector('#contact-preview-note').textContent = isEmail
+    ? 'Gmail se abrirá con el destinatario, el asunto y tu mensaje. Si usas otro servicio, elige tu aplicación de correo o copia el texto.'
+    : 'Continúa con el mensaje preparado. Podrás revisarlo y enviarlo desde tu cuenta de WhatsApp.';
+  document.querySelector('#contact-preview-body').textContent = links.body;
+  contactPreview.hidden = false;
+  formStatus.textContent = 'Borrador preparado. Elige cómo continuar; todavía no se ha enviado.';
+  contactPreview.focus({ preventScroll: true });
+  contactPreview.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'nearest' });
+});
+document.querySelector('#contact-copy').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(document.querySelector('#contact-preview-body').textContent);
+    formStatus.textContent = 'Mensaje copiado. Pégalo en WhatsApp o en tu correo.';
+  } catch {
+    formStatus.textContent = 'No se pudo copiar automáticamente. Puedes seleccionar y copiar el texto de la vista previa.';
+  }
 });
 
 // GSAP mejora la presentación; el contenido sigue visible si la librería no carga.
