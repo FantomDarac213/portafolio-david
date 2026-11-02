@@ -1,0 +1,99 @@
+[
+  {
+    "name": "JavaScript",
+    "source": "https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/js.svg",
+    "license": {
+      "type": "MIT",
+      "url": "https://spdx.org/licenses/MIT"
+    }
+  },
+  {
+    "name": "TypeScript",
+    "source": "https://www.typescriptlang.org/branding",
+    "license": null
+  },
+  {
+    "name": "PHP",
+    "source": "https://php.net/download-logos.php",
+    "license": {
+      "type": "CC-BY-SA-4.0",
+      "url": "https://spdx.org/licenses/CC-BY-SA-4.0"
+    }
+  },
+  {
+    "name": "HTML5",
+    "source": "https://www.w3.org/html/logo/",
+    "license": null
+  },
+  {
+    "name": "CSS",
+    "source": "https://github.com/CSS-Next/logo.css/blob/bacc20878227204b283c68a6b935f8279e06b0cd/css.svg",
+    "license": null
+  },
+  {
+    "name": "Vue.js",
+    "source": "https://github.com/vuejs/art/blob/a1c78b74569b70a25300925b4eacfefcc143b8f6/logo.svg",
+    "license": {
+      "type": "CC-BY-NC-SA-4.0",
+      "url": "https://spdx.org/licenses/CC-BY-NC-SA-4.0"
+    }
+  },
+  {
+    "name": "Nuxt",
+    "source": "https://nuxt.com/design-kit",
+    "license": null
+  },
+  {
+    "name": "Tailwind CSS",
+    "source": "https://tailwindcss.com/brand",
+    "license": null
+  },
+  {
+    "name": "Laravel",
+    "source": "https://github.com/laravel/art/tree/5a8325b064634b900f25dbb6f1cafd888b2d2211",
+    "license": null
+  },
+  {
+    "name": "PostgreSQL",
+    "source": "https://wiki.postgresql.org/wiki/Logo",
+    "license": null
+  },
+  {
+    "name": "Redis",
+    "source": "https://redis.io/brand-guidelines",
+    "license": null
+  },
+  {
+    "name": "Docker",
+    "source": "https://www.docker.com/company/newsroom/media-resources",
+    "license": null
+  },
+  {
+    "name": "Git",
+    "source": "https://git-scm.com/community/logos",
+    "license": {
+      "type": "CC-BY-3.0",
+      "url": "https://spdx.org/licenses/CC-BY-3.0"
+    }
+  },
+  {
+    "name": "GitHub Actions",
+    "source": "https://github.com/features/actions",
+    "license": null
+  },
+  {
+    "name": "Vitest",
+    "source": "https://github.com/voidzero-dev/community-design-resources/blob/55902097229cf01cf2a4ceb376f992f5cf306756/brand-assets/vitest/vitest-icon-color-bracketless.svg",
+    "license": null
+  },
+  {
+    "name": "Vite",
+    "source": "https://github.com/voidzero-dev/community-design-resources/blob/55902097229cf01cf2a4ceb376f992f5cf306756/brand-assets/vite/vite-icon-color-bracketless.svg",
+    "license": null
+  },
+  {
+    "name": "GSAP",
+    "source": "https://gsap.com/brand/",
+    "license": null
+  }
+]

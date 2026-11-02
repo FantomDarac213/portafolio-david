@@ -1,0 +1,96 @@
+PORTAFOLIO DE DAVID
+Proyecto personal, solo local. No se ha publicado.
+
+CÓMO ABRIRLO
+Abre index.html con tu navegador, o ejecuta: node servir.cjs (también npm start).
+Visita http://localhost:8080. Ctrl+C detiene el servidor.
+El servidor solo escucha en 127.0.0.1.
+Incluye fuentes, imágenes, iconos, GSAP 3.15.0 y ScrollTrigger como archivos
+locales. No necesita npm install para visualizarlo. Los enlaces externos,
+WhatsApp y correo requieren las aplicaciones o servicios correspondientes.
+
+CONTACTO
+Correo: davandre456@gmail.com
+WhatsApp: +51 918 816 413 (Perú)
+El formulario valida nombre, correo y mensaje. Prepara un borrador en WhatsApp
+o en la aplicación de correo del visitante. El visitante confirma allí el envío.
+No hay backend de correo ni envíos automáticos. No guarda los datos del formulario.
+
+QUÉ EDITAR
+index.html: presentación, servicios, conocimientos, proceso, formulario y footer.
+portfolio.js: proyectos, fichas, galería, navegación y tema.
+contact-utils.js: destinatarios y construcción de borradores.
+interactions.js: validación, contacto y animaciones GSAP.
+portfolio.css y editorial.css: estilos base, marca y servicios.
+experience.css: logo reducido, navegación, conocimientos, proceso y contacto.
+fonts.css: fuentes locales. assets/: imágenes, iconos, fuentes y librerías.
+
+DEPENDENCIAS DE DESARROLLO
+GSAP se instala mediante npm como librería oficial; no es un CLI ni un MCP.
+Para reconstruir los archivos locales desde las versiones fijadas:
+  npm ci --ignore-scripts
+  npm run assets
+Para comprobar sintaxis JavaScript: npm run check
+No incluyas node_modules al comprimir el proyecto; assets/vendor y assets/icons
+ya contienen lo necesario para que la web funcione.
+
+CONOCIMIENTOS
+Herramientas presentadas: PHP, Laravel, Vue, Nuxt, TypeScript, Tailwind, GSAP,
+PostgreSQL, Redis, Docker, Git, GitHub Actions, Vite y Vitest,
+junto a HTML, CSS y APIs REST.
+No muestra porcentajes de dominio ni años de experiencia no verificados.
+Animaciones de entrada y hover con respeto a la preferencia de movimiento reducido.
+
+PROYECTOS E IMÁGENES
+David participó, junto al equipo de desarrollo, en la construcción de la web,
+el aula virtual y el ERP administrativo de Rebagliati Diplomados.
+La ficha describe su participación en términos generales, sin información interna.
+La captura del sitio web público procede del portafolio de Joshua Ferreyra:
+https://portafolio-web-swart-pi.vercel.app/
+Seillo: https://apps.apple.com/us/app/seillo/id6764853392
+Incluye el icono y cinco capturas oficiales. Fuentes en assets/seillo-fuentes.txt.
+Logo de David proporcionado por el usuario, conservado en assets/david-logo.png.
+
+CRÉDITOS
+Lora y DM Sans: Google Fonts; licencias OFL en assets/fonts/.
+Iconos: Simple Icons 16.36.0, licencia y fuentes en assets/icons/.
+GSAP y ScrollTrigger 3.15.0: https://gsap.com/docs/v3/Installation/
+Se conservan los avisos de licencia en las librerías y su README en assets/vendor/.
+Paleta cálida #FBF9F8, texto #4E473F y azul #2969C2.
+
+VERIFICACIÓN
+Sintaxis JavaScript y codificación de los enlaces de contacto comprobadas.
+Formulario revisado en localhost: campos vacíos, correo inválido y corrección.
+Los mensajes de prueba no se envían.
+
+PRESENTACIÓN SIMPLIFICADA
+Mis proyectos y Mis Herramientas usan títulos únicos. Las herramientas se muestran
+en tarjetas compactas y horizontales, con movimiento continuo de GSAP.
+Sin flechas ni barra. Se puede pausar con el botón, el puntero o el foco.
+Respeta movimiento reducido.
+El proceso muestra cuatro ilustraciones con títulos breves. La franja del inicio
+fue retirada y la presentación incluye el nombre completo de David.
+
+PUBLICAR DESDE TU CUENTA PERSONAL
+1. En GitHub, inicia sesión con tu cuenta personal y crea un repositorio
+   llamado portafolio-david. Comprueba que el propietario sea tu usuario personal.
+2. Sube el contenido de esta carpeta extraída, no el ZIP. index.html y assets/
+   deben quedar en la raíz del repositorio. No subas node_modules/.
+3. En tu cuenta personal de Vercel, importa ese repositorio desde GitHub.
+   Configuración para este proyecto estático:
+   - Framework Preset: Other.
+   - Root Directory: raíz del repositorio (./).
+   - Build Command: activar Override y dejarlo vacío.
+   - Output Directory: . (un punto).
+   - No requiere variables de entorno.
+4. Pulsa Deploy y comprueba la dirección que te entrega Vercel.
+No ejecutes npm start como comando de construcción en Vercel; solo sirve
+para la vista previa local. El formulario seguirá preparando borradores
+de WhatsApp o correo; no requiere un servidor propio.
+Documentación: https://vercel.com/docs/builds/configure-a-build
+
+ENTREGA FINAL
+El ZIP contiene el código, recursos locales, licencias e instrucciones.
+No incluye node_modules, credenciales ni repositorios de la empresa.
+No se ha creado un repositorio remoto ni publicado el portafolio.
+

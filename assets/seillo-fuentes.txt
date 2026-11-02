@@ -1,0 +1,10 @@
+SEILLO — IMÁGENES OFICIALES
+Ficha: https://apps.apple.com/us/app/seillo/id6764853392
+Desarrollador indicado en App Store: Joshua Ferreyra
+Icono: 
+https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/27/66/f5276645-4940-ca35-b186-6c5a206d25a0/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg
+seillo-1.jpg: https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b7/60/af/b760af7d-9a2c-f7ed-cc09-1a9bafa66df6/Simulator_Screenshot_-_iPhone_17_-_2026-05-01_at_19.06.44.png/320x480bb.jpg
+seillo-2.jpg: https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/d0/df/26/d0df268e-b1ea-2e63-321c-bdc20f1b1feb/Simulator_Screenshot_-_iPhone_17_-_2026-05-01_at_19.07.23.png/320x480bb.jpg
+seillo-3.jpg: https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/24/99/f9/2499f99e-66be-9df2-d278-5a32d085912e/Simulator_Screenshot_-_iPhone_17_-_2026-05-01_at_19.07.37.png/320x480bb.jpg
+seillo-4.jpg: https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b0/7f/9a/b07f9aee-989f-db24-6c96-0a55c4356c54/Simulator_Screenshot_-_iPhone_17_-_2026-05-01_at_19.07.48.png/320x480bb.jpg
+seillo-5.jpg: https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/1c/53/09/1c53092b-b3e9-2465-de3c-3aae7510e8be/Simulator_Screenshot_-_iPhone_17_-_2026-05-01_at_19.07.56.png/320x480bb.jpg
